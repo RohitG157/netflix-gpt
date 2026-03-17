@@ -24,8 +24,13 @@ export const BODY_BG_IMG =
 
 export const API_ENDPOINTS = {
   NOW_PLAYING_MOVIES: "https://api.themoviedb.org/3/movie/now_playing",
+  POPULAR_MOVIES: "https://api.themoviedb.org/3/movie/popular",
+  TOP_RATED_MOVIES: "https://api.themoviedb.org/3/movie/top_rated",
+  UPCOMING_MOVIES: "https://api.themoviedb.org/3/movie/upcoming",
   VIDEOS: (movieId) => `https://api.themoviedb.org/3/movie/${movieId}/videos`,
 };
+
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";
 
 export const API_OPTIONS = {
   GET: {
