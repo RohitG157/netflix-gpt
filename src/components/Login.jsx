@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { auth } from "../utils/firebase";
+import { BODY_IMG_URL } from "../utils/constant";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -56,10 +57,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/eb110559-67e9-40ec-8f1c-4a45b9f9c9bb/web/IN-en-20260309-TRIFECTA-perspective_6796824d-3538-42c9-95e0-baabc0fdbadf_large.jpg"
-          alt="body logo"
-        />
+        <img src={BODY_IMG_URL} alt="body logo" />
       </div>
       <form
         onSubmit={handleFormSubmit}
