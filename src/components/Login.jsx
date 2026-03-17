@@ -44,14 +44,11 @@ const Login = () => {
         await updateUser(name.value);
         const { uid, email, displayName } = auth.currentUser;
         dispatch(addUser({ uid, email, displayName }));
-        navigate("/browse");
       }
     } else {
       const signInResponse = await signIn(email.value, password.value);
       if (typeof signInResponse === "string") {
         setErrorMessage(signInResponse);
-      } else {
-        navigate("/browse");
       }
     }
   };
