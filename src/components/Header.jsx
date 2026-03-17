@@ -17,7 +17,6 @@ const Header = () => {
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log("onAuthStateChanged");
       if (user) {
         const { uid, email, displayName } = user;
         dispatch(addUser({ uid, email, displayName }));
@@ -33,17 +32,10 @@ const Header = () => {
   }, []);
   return (
     <div className="absolute w-screen px-8 py-6 bg-linear-to-b from-black z-10 flex justify-between">
-      <img
-        className="w-44"
-        src={LOGO}
-        alt="body-logo"
-      />
+      <img className="w-44" src={LOGO} alt="body-logo" />
       {user && (
         <div className="flex px-2">
-          <img
-            className="w-12 h-12 "
-            src={AVTAR}
-          />
+          <img className="w-12 h-12 " src={AVTAR} />
           <button
             type="button"
             className="px-2 text-white text-sm font-semibold cursor-pointer"
