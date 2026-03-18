@@ -25,12 +25,16 @@ export const BODY_BG_IMG =
 export const BODY_IMG_URL =
   "https://assets.nflxext.com/ffe/siteui/vlv3/eb110559-67e9-40ec-8f1c-4a45b9f9c9bb/web/IN-en-20260309-TRIFECTA-perspective_6796824d-3538-42c9-95e0-baabc0fdbadf_large.jpg";
 
+export const BG_POSTER_MOVIES =
+  "https://images.ctfassets.net/y2ske730sjqp/5QQ9SVIdc1tmkqrtFnG9U1/de758bba0f65dcc1c6bc1f31f161003d/BrandAssets_Logos_02-NSymbol.jpg?w=500";
 export const API_ENDPOINTS = {
   NOW_PLAYING_MOVIES: "https://api.themoviedb.org/3/movie/now_playing",
   POPULAR_MOVIES: "https://api.themoviedb.org/3/movie/popular",
   TOP_RATED_MOVIES: "https://api.themoviedb.org/3/movie/top_rated",
   UPCOMING_MOVIES: "https://api.themoviedb.org/3/movie/upcoming",
   VIDEOS: (movieId) => `https://api.themoviedb.org/3/movie/${movieId}/videos`,
+  SEARCH_MOVIE: (movieName) =>
+    `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=1'`,
 };
 
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";
@@ -40,8 +44,7 @@ export const API_OPTIONS = {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZDNjOGZiNTQ5YmJmYzllMDVjYzFjYWE1YTdjYWU5NiIsIm5iZiI6MTc3Mzc0MDk3OS42NDMwMDAxLCJzdWIiOiI2OWI5MjNiMzVjMmY2YmM1YmQ1YTdjODUiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.-H7m7zME0xwfqSp1kRp4gXgFA-gfzIk-xaR8BxxSuoA",
+      Authorization: "Bearer " + import.meta.env.VITE_TMDB_API_KEY,
     },
   },
 };
@@ -53,3 +56,5 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "hindi", name: "Hindi" },
   { identifier: "spanish", name: "Spanish" },
 ];
+
+export const OPENAI_KEY = import.meta.env.VITE_OPENAI_API_KEY;
