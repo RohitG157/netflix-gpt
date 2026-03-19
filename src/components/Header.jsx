@@ -41,7 +41,7 @@ const Header = () => {
     dispatch(toggleGptSearchView());
   };
 
-  const togglePreferredLanguage = (e) => {
+  const togglePreferredLanguage = () => {
     const selectedLang = langRef.current.value;
     dispatch(changePreferredLanguage(selectedLang));
   };

@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import Header from "./Header";
 import { validateAuthForm } from "../utils/validate";
 import { createAnAccount, signIn, updateUser } from "../utils/auth";
-import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { auth } from "../utils/firebase";
@@ -12,7 +11,6 @@ const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const nameField = useRef(null);
   const emailField = useRef(null);
   const passwordField = useRef(null);
