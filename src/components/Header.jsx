@@ -16,6 +16,9 @@ const Header = () => {
   const isGptSearchEnabled = useSelector(
     (store) => store.gptSearch.showGptSearch,
   );
+  const preferredLanguage = useSelector(
+    (store) => store.config.preferredLanguage,
+  );
   const navigate = useNavigate();
   const handleSignOut = () => {
     signOutUser();
@@ -46,19 +49,23 @@ const Header = () => {
     dispatch(changePreferredLanguage(selectedLang));
   };
   return (
-    <div className="absolute w-screen px-8 py-6 bg-linear-to-b from-black z-10 flex justify-between">
-      <img className="w-44" src={LOGO} alt="body-logo" />
+    <div className="absolute w-screen px-8 py-6 bg-linear-to-b from-black z-10 flex justify-between flex-col md:flex-row">
+      <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="body-logo" />
       {user && (
-        <div className="flex px-2 items-center">
-          <div>
+        <div className="flex px-2 items-center justify-center">
+          <div className="flex mt-6 md:mt-0">
             {isGptSearchEnabled && (
               <select
                 ref={langRef}
-                className="bg-red-700 text-white px-2 py-3 mr-4 appearance-none"
+                className="bg-red-700 text-white px-2 py-2 md:py-3 mr-2 md:mr-4 appearance-none"
                 onChange={togglePreferredLanguage}
               >
                 {SUPPORTED_LANGUAGES.map((lang) => (
-                  <option key={lang.identifier} value={lang.identifier}>
+                  <option
+                    key={lang.identifier}
+                    value={lang.identifier}
+                    selected={preferredLanguage === lang.identifier}
+                  >
                     {lang.name}
                   </option>
                 ))}
@@ -66,17 +73,16 @@ const Header = () => {
             )}
             <button
               type="button"
-              className="py-3 px-4 mr-4 text-white bg-amber-600"
+              className="py-2 md:py-3 px-4 mr-4 text-white bg-amber-600"
               onClick={handleGptSearchClick}
             >
               {isGptSearchEnabled ? "Home" : "GPT Search"}
             </button>
           </div>
-
-          <img className="w-12 h-12 " src={AVTAR} />
+          <img className="w-6 h-6 mt-6 md:mt-0 md:w-12 md:h-12" src={AVTAR} />
           <button
             type="button"
-            className="px-2 text-white text-sm font-semibold cursor-pointer"
+            className="px-2 text-white mt-6 md:mt-0 text-sm font-semibold cursor-pointer"
             onClick={handleSignOut}
           >
             Sign Out
