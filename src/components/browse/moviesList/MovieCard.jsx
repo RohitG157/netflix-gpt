@@ -1,5 +1,4 @@
-import React from "react";
-import { IMG_CDN_URL, BG_POSTER_MOVIES } from "../utils/constant";
+import { IMG_CDN_URL, BG_POSTER_MOVIES } from "../../../utils/constant";
 
 const MovieCard = ({ poster_path }) => {
   return (

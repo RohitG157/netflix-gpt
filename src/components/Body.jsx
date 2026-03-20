@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
-import Login from "./Login";
-import Browse from "./Browse";
+import Login from "./auth/Login";
+import Browse from "./browse/Browse";
 import { BODY_BG_IMG } from "../utils/constant";
 
 const Body = () => {

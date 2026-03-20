@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
-import lang from "../utils/lang";
+import lang from "../../utils/lang";
 import { useDispatch, useSelector } from "react-redux";
-import client from "../utils/openai";
-import { API_ENDPOINTS, API_OPTIONS } from "../utils/constant";
-import { addGptMovieResult } from "../utils/gptSlice";
+import client from "../../utils/openai";
+import { API_ENDPOINTS, API_OPTIONS } from "../../utils/constant";
+import { addGptMovieResult } from "../../utils/gptSlice";
+import { useRef } from "react";
 
 const GptSearchBar = () => {
   const dispatch = useDispatch();

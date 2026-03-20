@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
-import Header from "./Header";
-import { validateAuthForm } from "../utils/validate";
-import { createAnAccount, signIn, updateUser } from "../utils/auth";
+import Header from "../common/Header";
+import { validateAuthForm } from "../../utils/validate";
+import { createAnAccount, signIn, updateUser } from "../../utils/auth";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
-import { auth } from "../utils/firebase";
-import { BODY_IMG_URL } from "../utils/constant";
+import { addUser } from "../../utils/userSlice";
+import { auth } from "../../utils/firebase";
+import { BODY_IMG_URL } from "../../utils/constant";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
